@@ -7,12 +7,11 @@ import { Link } from 'react-router-dom'
 
 export function Filter(){
 
-	const {moviesData,genres,getGenre,dispatch,years,getYear,ratings,getRatings}=useContext(MoviesContext)
+	const {moviesData,genres,getGenre,dispatch,years,getYear}=useContext(MoviesContext)
 
 	const getDetails=()=>{
 		getGenre();
 		getYear();
-		getRatings();
 	}
 
 	const handleGenre=(e)=>{
@@ -59,14 +58,19 @@ export function Filter(){
 				<option value="">
 					Rating
 				</option>
-				{
-					ratings.map(item=>(
-						<option value={item}>{item}</option>	
-					))
-				}
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
 			</select>
 
-			<button className='btn_primary' onClick={handleReset}>Reset</button>
+			<button className='btn_primary' onClick={handleReset}>Clear Filters</button>
 			<Link className='btn_primary' to='/add-movie'>Add a Movie</Link>
 		</div>	
 	)

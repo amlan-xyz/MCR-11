@@ -40,36 +40,36 @@ export function Form(){
 			<form onSubmit={handleSubmit}>
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" onChange={(e)=>setFormData(form=>({...form,title:e.target.value}))} name="title" id="title" />
+    <input type="text" class="form-control" placeholder='Name of the movie' onChange={(e)=>setFormData(form=>({...form,title:e.target.value}))} name="title" id="title" />
   </div>
   <div class="form-group">
     <label for="year">Year</label>
-    <input type="number" onChange={(e)=>setFormData(form=>({...form,year:Number(e.target.value)}))} class="form-control" name="year" id="year" />
+    <input type="number" placeholder='Year' onChange={(e)=>setFormData(form=>({...form,year:Number(e.target.value)}))} class="form-control" name="year" id="year" />
   </div>
   <div class="form-group">
     <label for="genre">Genre</label>
-    <input  id="genre" onChange={(e)=>setFormData(form=>({...form,genre:e.target.value.split(',')}))}  >
+    <input  id="genre" placeholder='Drama,Action.....' onChange={(e)=>setFormData(form=>({...form,genre:e.target.value.split(',')}))}  >
     </input>
   </div>
   <div class="form-group">
     <label for="rating">Rating</label>
-    <input type="number" onChange={(e)=>setFormData(form=>({...form,rating:Number(e.target.value)}))} class="form-control" name="rating" id="rating" />
+    <input type="number" placeholder='Rating' onChange={(e)=>setFormData(form=>({...form,rating:Number(e.target.value)}))} class="form-control" name="rating" id="rating" />
   </div>
   <div class="form-group">
     <label for="director">Director</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,director:e.target.value}))} class="form-control" name="director" id="director" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,director:e.target.value}))} class="form-control" placeholder='Director' name="director" id="director" />
   </div>
   <div class="form-group">
     <label for="writer">Writer</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,writer:e.target.value}))} class="form-control" name="writer" id="writer" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,writer:e.target.value}))} class="form-control" placeholder='Writer' name="writer" id="writer" />
   </div>
   <div class="form-group">
     <label for="cast">Cast</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:e.target.value.split(',')}))} class="form-control"  name="cast" id="cast" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:e.target.value.split(',')}))} class="form-control" placeholder='Chandler Bing,Monica Geller,Ross Geller.....'  name="cast" id="cast" />
   </div>
   <div class="form-group">
     <label for="summary">Summary</label>
-    <textarea class="form-control" onChange={(e)=>setFormData(form=>({...form,summary:e.target.value}))} name="summary" id="summary"></textarea>
+    <textarea class="form-control" onChange={(e)=>setFormData(form=>({...form,summary:e.target.value}))} name="summary" id="summary" placeholder='Summary of the movie'></textarea>
   </div>
   <div class="form-group">
     <label for="image">Image</label>

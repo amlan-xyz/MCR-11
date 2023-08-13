@@ -23,7 +23,7 @@
 	gap: .2rem;
 }
 
-.form-group input,select{
+.form-group input,select,textarea{
 	padding: .5rem;
 }
 

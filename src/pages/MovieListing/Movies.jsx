@@ -16,10 +16,15 @@ export function Movies(){
 	return(
 		<section className="layout">
 			<Filter/>
+
+			{
+				state.length===0?<h1>No movies found!</h1>:''
+			}
+
 			<ul className="card_list">
 				{
 					state.map(item=>{
-						const {id,genre,title,rating,director,year,imageURL,summary}=item;
+						const {id,title,imageURL,summary}=item;
 						return(
 						<li className="card" key={id}>
 						

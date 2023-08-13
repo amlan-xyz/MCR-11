@@ -11,7 +11,6 @@ export function MoviesContextProvider({children}){
 	const [moviesData,setMoviesData]=useState([]);
 	const [genres,setGenres]=useState([]);
 	const [years,setYears]=useState([]);
-	const [ratings,setRatings]=useState([])
 	const [movie,setMovie]=useState([]);
 
 
@@ -44,18 +43,6 @@ export function MoviesContextProvider({children}){
 		setYears(data.sort((a,b)=>a-b))
 	}
 
-	const getRatings=()=>{
-		const data=movies.reduce((acc,curr)=>{
-			if(!acc.includes(curr.rating)){
-				acc.push(curr.rating);
-			}
-			return acc;
-
-		},[])
-
-		setRatings(data.sort((a,b)=>a-b))
-	}
-
 
 	const getMovie=(movie_id)=>{
 		setMovie(moviesData.find(({id})=>id===Number(movie_id)));
@@ -65,7 +52,7 @@ export function MoviesContextProvider({children}){
 		getMovies();
 	},[])
 
-	const value={moviesData,getMovies,state,dispatch,getGenre,genres,getYear,years,getRatings,ratings,setMoviesData,movie,getMovie};
+	const value={moviesData,getMovies,state,dispatch,getGenre,genres,getYear,years,setMoviesData,movie,getMovie};
 
 	return(
 		<MoviesContext.Provider value={value}>{children}</MoviesContext.Provider>	
