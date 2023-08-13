@@ -4,10 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {BrowserRouter as Router} from 'react-router-dom'
+
+import { MoviesContext,MoviesContextProvider } from './context/MoviesContext';
+import { WatchLaterContext,WatchLaterContextProvider } from './context/WatchLaterContext';
+
+export {MoviesContext,WatchLaterContext};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <MoviesContextProvider>
+        <WatchLaterContextProvider>
+          <App />
+        </WatchLaterContextProvider>
+      </MoviesContextProvider>
+    </Router>
   </React.StrictMode>
 );
 
