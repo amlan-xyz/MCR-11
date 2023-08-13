@@ -1,0 +1,21 @@
+.movie_details{
+	padding: 2rem 3rem;
+}
+
+.movie_details_card{
+	box-shadow: var(--shadow);
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: 2rem;
+}
+
+.movie_img{
+	width: 300px;
+	height: fit-content;
+}
+
+.details{
+	font-size: 1.3rem;
+}
+

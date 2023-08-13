@@ -57,19 +57,15 @@ export function MoviesContextProvider({children}){
 	}
 
 
-	const addMovie=(movie)=>{
-		setMoviesData(moviesData=>[...moviesData,movie])
-	}
-
 	const getMovie=(movie_id)=>{
-		setMovie(moviesData.find(({id})=>id===movie_id));
+		setMovie(moviesData.find(({id})=>id===Number(movie_id)));
 	}
 
 	useEffect(()=>{
 		getMovies();
 	},[])
 
-	const value={moviesData,getMovies,state,dispatch,getGenre,genres,getYear,years,getRatings,ratings,addMovie,movie,getMovie};
+	const value={moviesData,getMovies,state,dispatch,getGenre,genres,getYear,years,getRatings,ratings,setMoviesData,movie,getMovie};
 
 	return(
 		<MoviesContext.Provider value={value}>{children}</MoviesContext.Provider>	

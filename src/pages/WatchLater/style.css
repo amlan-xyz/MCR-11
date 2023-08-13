@@ -1,0 +1,10 @@
+.watch_later{
+	padding: 2rem 3rem;
+}
+
+.watch_later header{
+	text-align: center;
+	font-size: 1.8rem;
+	color: var(--primary-color);
+	font-weight: 600;
+}

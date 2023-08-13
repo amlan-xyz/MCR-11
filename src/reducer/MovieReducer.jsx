@@ -10,6 +10,8 @@ export const MovieReducer=(acc,action)=>{
 			return [...acc].filter(({rating})=>rating===Number(action.payload))
 		case 'search':
 			return [...acc].filter(({title,director,cast})=>title.toLowerCase().includes(action.payload.toLowerCase()) || director.toLowerCase().includes(action.payload.toLowerCase()) || cast.some(item=>item.toLowerCase().includes((action.payload.toLowerCase()))));
+		case 'add_movie':
+			return [...acc,action.payload]
 		case 'reset':
 			return [...action.payload];
 		default:

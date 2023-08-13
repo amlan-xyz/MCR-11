@@ -7,6 +7,18 @@ nav{
 	align-items: center;
 	top: 0;
 	z-index: 999;
+	background-color: #585757;
+}
+
+.nav_header{
+	color: white;
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+.nav_link{
+	text-decoration: none;
+	color: white;
 }
 
 nav input{
@@ -16,5 +28,5 @@ nav input{
 
 nav ul{
 	display: flex;
-	gap:1rem
+	gap:1.5rem
 }

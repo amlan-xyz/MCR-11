@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './style.css'
 import { MoviesContext } from '../../context/MoviesContext';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,15 @@ export function Form(){
 
 	const [formData,setFormData]=useState({});
 
-	const {addMovie,moviesData,dispatch}=useContext(MoviesContext)
+
+  const {moviesData,genres,getGenre,dispatch,getYear,getRatings,setMoviesData}=useContext(MoviesContext)
+
+	const getDetails=()=>{
+		getGenre();
+		getYear();
+		getRatings();
+	}
+
 
 	const navigate=useNavigate();
 
@@ -21,14 +29,18 @@ export function Form(){
 			id:moviesData.length+1,
 			...formData,
 		}
-		addMovie(newMovie);
-		dispatch({type:'reset',payload:moviesData});
+		setMoviesData(moviesData=>[...moviesData,newMovie]);
+		dispatch({type:'add_movie',payload:newMovie});
 		navigate('/')
+    console.log(moviesData);
 	}
 
+  useEffect(()=>{
+    getDetails();
+  },[])
 
 	return(
-		<section>
+		<section className='new_movie'> 
 			<header>Add new Movie</header>
 			<form onSubmit={handleSubmit}>
   <div class="form-group">
@@ -41,7 +53,8 @@ export function Form(){
   </div>
   <div class="form-group">
     <label for="genre">Genre</label>
-    <input type="text" class="form-control" onChange={(e)=>setFormData(form=>({...form,genre:e.target.value}))} name="genre" id="genre" />
+    <input  id="genre" onChange={(e)=>setFormData(form=>({...form,genre:[e.target.value.split(',')]}))}  >
+    </input>
   </div>
   <div class="form-group">
     <label for="rating">Rating</label>
@@ -57,7 +70,7 @@ export function Form(){
   </div>
   <div class="form-group">
     <label for="cast">Cast</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:e.target.value}))} class="form-control"  name="cast" id="cast" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:[e.target.value.split(',')]}))} class="form-control"  name="cast" id="cast" />
   </div>
   <div class="form-group">
     <label for="summary">Summary</label>
@@ -65,9 +78,9 @@ export function Form(){
   </div>
   <div class="form-group">
     <label for="image">Image</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,imageUrl:e.target.value}))} class="form-control" name="image" id="image" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,imageURL:e.target.value}))} class="form-control" name="image" id="image" />
   </div>
-  <button type="submit" class="">Submit</button>
+  <button type="submit" className="btn_primary">Submit</button>
 </form>
 
 		</section>	

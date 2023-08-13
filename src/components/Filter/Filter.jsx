@@ -37,10 +37,10 @@ export function Filter(){
 
 	return(
 		<div className="filter">
-			<header>Movies</header>
+			<header className='filter_header'>Movies</header>
 
 			<select onChange={handleGenre} id="">
-				<option disabled value="">All genre</option>
+				<option value="">All genre</option>
 				{
 					genres.map(item=>(
 						<option value={item}>{item}</option>	
@@ -48,7 +48,7 @@ export function Filter(){
 				}
 			</select>
 			<select onChange={handleYear} id="">
-				<option disabled value="">Release Year</option>
+				<option  value="">Release Year</option>
 				{
 					years.map(item=>(
 						<option value={item}>{item}</option>	
@@ -56,7 +56,7 @@ export function Filter(){
 				}
 			</select>
 			<select onChange={handleRating} name="" id="">
-				<option disabled value="">
+				<option value="">
 					Rating
 				</option>
 				{
@@ -66,8 +66,8 @@ export function Filter(){
 				}
 			</select>
 
-			<button onClick={handleReset}>Reset</button>
-			<Link to='/add-movie'>Add a Movie</Link>
+			<button className='btn_primary' onClick={handleReset}>Reset</button>
+			<Link className='btn_primary' to='/add-movie'>Add a Movie</Link>
 		</div>	
 	)
 }
