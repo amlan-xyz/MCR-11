@@ -13,10 +13,6 @@ export function Movies(){
 
 	const navigate=useNavigate();
 
-	useEffect(()=>{
-		getMovies();
-	},[]);
-
 	return(
 		<section className="layout">
 			<Filter/>

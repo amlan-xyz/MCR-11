@@ -12,13 +12,7 @@ export function Form(){
 	const [formData,setFormData]=useState({});
 
 
-  const {moviesData,genres,getGenre,dispatch,getYear,getRatings,setMoviesData}=useContext(MoviesContext)
-
-	const getDetails=()=>{
-		getGenre();
-		getYear();
-		getRatings();
-	}
+  const {moviesData,getGenre,dispatch,getYear,getRatings,setMoviesData}=useContext(MoviesContext)
 
 
 	const navigate=useNavigate();
@@ -29,6 +23,7 @@ export function Form(){
 			id:moviesData.length+1,
 			...formData,
 		}
+    console.log(newMovie);
 		setMoviesData(moviesData=>[...moviesData,newMovie]);
 		dispatch({type:'add_movie',payload:newMovie});
 		navigate('/')
@@ -36,7 +31,7 @@ export function Form(){
 	}
 
   useEffect(()=>{
-    getDetails();
+   
   },[])
 
 	return(
@@ -53,7 +48,7 @@ export function Form(){
   </div>
   <div class="form-group">
     <label for="genre">Genre</label>
-    <input  id="genre" onChange={(e)=>setFormData(form=>({...form,genre:[e.target.value.split(',')]}))}  >
+    <input  id="genre" onChange={(e)=>setFormData(form=>({...form,genre:e.target.value.split(',')}))}  >
     </input>
   </div>
   <div class="form-group">
@@ -70,7 +65,7 @@ export function Form(){
   </div>
   <div class="form-group">
     <label for="cast">Cast</label>
-    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:[e.target.value.split(',')]}))} class="form-control"  name="cast" id="cast" />
+    <input type="text" onChange={(e)=>setFormData(form=>({...form,cast:e.target.value.split(',')}))} class="form-control"  name="cast" id="cast" />
   </div>
   <div class="form-group">
     <label for="summary">Summary</label>

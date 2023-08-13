@@ -3,15 +3,21 @@ import './style.css'
 import { MoviesContext,WatchLaterContext } from '../../index'
 import { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import { movies } from '../../data/movies';
 
 export function MovieDetails(){
 
-	const {movie}=useContext(MoviesContext);
+	const {movie,moviesData}=useContext(MoviesContext);
 	const {watchLater,addToWatchLater,removeFromWatchLater}=useContext(WatchLaterContext);
 	const {id}=useParams();
 
 
 	const {genre,title,rating,director,year,imageURL,summary,writer,cast}=movie;
+
+	useEffect(()=>{
+		console.log(moviesData)
+		console.log(movie);
+	},[])
 
 	return(
 		<section className='movie_details'>

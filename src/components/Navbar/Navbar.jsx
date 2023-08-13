@@ -27,7 +27,6 @@ export function Navbar(){
 			<ul>
 				<li ><NavLink className="nav_link"  to='/'>Movies</NavLink> </li>
 				<li ><NavLink className="nav_link" to='/watch-later'>Watch List</NavLink></li>
-				<li ><NavLink className="nav_link" to='/stared-movies'>Stared</NavLink></li>
 			</ul>
 		</nav>	
 	)
